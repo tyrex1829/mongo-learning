@@ -29,20 +29,33 @@ const productSchema = new mongoose.Schema({
     }
 });
 
+// model instance method
+productSchema.methods.greet = function() {
+    console.log("Hello!!!!")
+    console.log(`from ${this.name}`)
+}
+
 const Product = mongoose.model("Product", productSchema);
 
-const bike = new Product({
-    name: "Mountain Bike",
-    price: 999,
-    color: "red"
-});
+const findProduct = async () => {
+    const foundProduct = await Product.findOne({name: "Bike Helmet"})
+    foundProduct.greet();
+}
 
-bike.save()
-    .then(data => {
-        console.log("It Worked!!");
-        console.log(data);
-    })
-    .catch(err => {
-        console.log("Oh No Error!!");
-        console.log(err);
-    })
+findProduct();
+
+// const bike = new Product({
+//     name: "Mountain Bike",
+//     price: 999,
+//     color: "red"
+// });
+
+// bike.save()
+//     .then(data => {
+//         console.log("It Worked!!");
+//         console.log(data);
+//     })
+//     .catch(err => {
+//         console.log("Oh No Error!!");
+//         console.log(err);
+//     })
