@@ -50,3 +50,5 @@ const Movie = mongoose.model("Movie", movieSchema);
 
 // .find({}).then(data => console.log(data)); // this should be done in node repl after .load index.js
 
+// .update(), .updateOne(), .updateMany() etc
+
