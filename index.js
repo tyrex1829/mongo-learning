@@ -52,3 +52,5 @@ const Movie = mongoose.model("Movie", movieSchema);
 
 // .update(), .updateOne(), .updateMany() etc
 
+// .deleteMany(), .deleteOne(), remove() is depricated
+
